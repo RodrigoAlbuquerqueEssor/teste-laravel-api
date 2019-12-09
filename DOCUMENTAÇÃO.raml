@@ -1,0 +1,502 @@
+#%RAML 0.8
+#
+# SeguroResidencial
+#
+#
+#
+title: SeguroResidencial
+version: v1
+baseUri: https://{host}/api
+baseUriParameters:
+  host:
+    description: Ambiente em que se encontra a API.
+    enum: [""]
+
+
+#
+# Método POST - Gerar Token:
+#Desabilitado devido a erro...
+/login:
+  description: Serviço para gerar token de autenticação.
+  post:
+    headers:
+      Content-Type:
+        required: true
+        example: application/x-www-form-urlencoded
+    body:
+      application/x-www-form-urlencoded:
+        email:
+          required:true
+          example: leonardo@gmail.com
+        password:
+          required:true
+          example: 123456
+
+    responses:
+     200:
+       description: Operação realizada com sucesso.
+       body:
+         application/json:
+           schema: |
+             {
+               "definitions": {},
+               "$schema": "http://json-schema.org/draft-07/schema#",
+               "$id": "http://example.com/root.json",
+               "type": "object",
+               "properties": {
+                 "token": {
+                   "type": "string"
+                 },
+                 "user": {
+                   "type": "object",
+                   "properties": {
+                     "id": {
+                       "type": "string"
+                     },
+                     "name": {
+                       "type": "string"
+                     },
+                     "email": {
+                       "type": "string"
+                     },
+                     "created_at": {
+                       "type": "string"
+                     },
+                     "updated_at": {
+                       "type": "string"
+                     }
+                   }
+                 }
+               }
+              }
+
+
+           example: |
+             {
+              "token": "ASLDKOAOSJDNSALKDASPJDOIANSDKLASMDAKSDASFNASD",
+              "user": {
+                "id": "1",
+                "name": "Leonardo",
+                "email": "leonardo@gmail.com",
+                "created_at": "2012-12-12 12:12:12",
+                "updated_at": "2012-12-12 12:12:12"
+              }
+              }
+
+     422:
+       description: Algum campo envíado está inválido.
+     401:
+       description: Não autorizado.
+     500:
+       description: Erro interno do servidor.
+
+
+# Método POST - Cadastrar Clientes:
+/tasks:
+ description: Serviço de Cadastro de clientes.
+ post:
+   headers:
+     Content-Type:
+       required: true
+       example: application/x-www-form-urlencoded
+   body:
+     application/x-www-form-urlencoded:
+       logradouro:
+         required:true
+         example: Rua um
+       bairro:
+         required:true
+         example: bairro um
+       municipio:
+         required:true
+         example: Rio de Janeiro
+       estado:
+         required:true
+         example: rj
+       cep:
+         required:true
+         example: 00000-000
+       tipo_imovel:
+         required:true
+         example: casa
+       nome_prop:
+         required:true
+         example: José
+       cpf:
+         required:true
+         example: 12312312312
+
+   responses:
+    200:
+      description: Operação realizada com sucesso.
+      body:
+        application/json:
+          schema: |
+            {
+              "definitions": {},
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "$id": "http://example.com/root.json",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "logradouro": {
+                    "type": "string"
+                  },
+                  "bairro": {
+                    "type": "string"
+                  },
+                  "municipio": {
+                    "type": "string"
+                  },
+                  "estado": {
+                    "type": "string"
+                  },
+                  "cep": {
+                    "type": "string"
+                  },
+                  "tipo_imovel": {
+                    "type": "string"
+                  },
+                  "nome_prop": {
+                    "type": "string"
+                  },
+                  "cpf": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string"
+                  },
+                  "updated_at": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          example: |
+            [
+              {
+                "id": "1",
+                "logradouro": "Rua um",
+                "bairro": "bairro um",
+                "municipio": "Rio de Janeiro",
+                "estado": "RJ",
+                "cep": "00000-000",
+                "tipo_imovel": "casa",
+                "nome_prop": "José",
+                "cpf": "12312312312",
+                "created_at": "2012-12-12 12:12:12",
+                "updated_at": "2012-12-12 12:12:12"
+              }
+              ]
+
+
+    422:
+      description: Algum campo envíado está inválido.
+    401:
+      description: Não autorizado.
+    500:
+      description: Erro interno do servidor.
+
+
+# Método GET - Buscar Clientes:
+/tasks:
+ description: Serviço buscar lista de clientes.
+ get:
+   headers:
+     Content-Type:
+       required: true
+       example: application/x-www-form-urlencoded
+
+   responses:
+    200:
+      description: Operação realizada com sucesso.
+      body:
+        application/json:
+          schema: |
+            {
+              "definitions": {},
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "$id": "http://example.com/root.json",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "logradouro": {
+                    "type": "string"
+                  },
+                  "bairro": {
+                    "type": "string"
+                  },
+                  "municipio": {
+                    "type": "string"
+                  },
+                  "estado": {
+                    "type": "string"
+                  },
+                  "cep": {
+                    "type": "string"
+                  },
+                  "tipo_imovel": {
+                    "type": "string"
+                  },
+                  "nome_prop": {
+                    "type": "string"
+                  },
+                  "cpf": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string"
+                  },
+                  "updated_at": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          example: |
+            [
+              {
+                "id": "1",
+                "logradouro": "Rua um",
+                "bairro": "bairro um",
+                "municipio": "Rio de Janeiro",
+                "estado": "RJ",
+                "cep": "00000-000",
+                "tipo_imovel": "casa",
+                "nome_prop": "José",
+                "cpf": "12312312312",
+                "created_at": "2012-12-12 12:12:12",
+                "updated_at": "2012-12-12 12:12:12"
+              }
+              ]
+
+    422:
+      description: Algum campo envíado está inválido.
+    401:
+      description: Não autorizado.
+    500:
+      description: Erro interno do servidor.
+
+
+# Método GET - Buscar Clientes por ID:
+/tasks/{id}:
+ description: Serviço buscar cliente por ID.
+ get:
+
+   responses:
+    200:
+      description: Operação realizada com sucesso.
+      body:
+        application/json:
+          schema: |
+            {
+              "definitions": {},
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "$id": "http://example.com/root.json",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "logradouro": {
+                  "type": "string"
+                },
+                "bairro": {
+                  "type": "string"
+                },
+                "municipio": {
+                  "type": "string"
+                },
+                "estado": {
+                  "type": "string"
+                },
+                "cep": {
+                  "type": "string"
+                },
+                "tipo_imovel": {
+                  "type": "string"
+                },
+                "nome_prop": {
+                  "type": "string"
+                },
+                "cpf": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                }
+              }
+              }
+          example: |
+            {
+              "id": "1",
+              "logradouro": "Rua um",
+              "bairro": "bairro um",
+              "municipio": "Rio de Janeiro",
+              "estado": "RJ",
+              "cep": "00000-000",
+              "tipo_imovel": "casa",
+              "nome_prop": "José",
+              "cpf": "12312312312",
+              "created_at": "2012-12-12 12:12:12",
+              "updated_at": "2012-12-12 12:12:12"
+            }
+
+
+    422:
+      description: Algum campo envíado está inválido.
+    401:
+      description: Não autorizado.
+    500:
+      description: Erro interno do servidor.
+
+
+# Método PATCH - Atulizar Cliente por ID:
+/tasks{id}:
+ description: Serviço para atualizar cliente por ID.
+ post:
+   headers:
+     Content-Type:
+       required: true
+       example: application/x-www-form-urlencoded
+   body:
+     application/x-www-form-urlencoded:
+       logradouro:
+         required:true
+         example: Rua um
+       bairro:
+         required:true
+         example: bairro um
+       municipio:
+         required:true
+         example: Rio de Janeiro
+       estado:
+         required:true
+         example: rj
+       cep:
+         required:true
+         example: 00000-000
+       tipo_imovel:
+         required:true
+         example: casa
+       nome_prop:
+         required:true
+         example: José
+       cpf:
+         required:true
+         example: 12312312312
+
+   responses:
+    200:
+      description: Operação realizada com sucesso.
+      body:
+        application/json:
+          schema: |
+            {
+              "definitions": {},
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "$id": "http://example.com/root.json",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "logradouro": {
+                  "type": "string"
+                },
+                "bairro": {
+                  "type": "string"
+                },
+                "municipio": {
+                  "type": "string"
+                },
+                "estado": {
+                  "type": "string"
+                },
+                "cep": {
+                  "type": "string"
+                },
+                "tipo_imovel": {
+                  "type": "string"
+                },
+                "nome_prop": {
+                  "type": "string"
+                },
+                "cpf": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                }
+              }
+              }
+          example: |
+              {
+                "id": "1",
+                "logradouro": "Rua um",
+                "bairro": "bairro um",
+                "municipio": "Rio de Janeiro",
+                "estado": "RJ",
+                "cep": "00000-000",
+                "tipo_imovel": "casa",
+                "nome_prop": "José",
+                "cpf": "12312312312",
+                "created_at": "2012-12-12 12:12:12",
+                "updated_at": "2012-12-12 12:12:12"
+              }
+
+    422:
+      description: Algum campo envíado está inválido.
+    401:
+      description: Não autorizado.
+    500:
+      description: Erro interno do servidor.
+
+
+# Método DELETE - Deletar Clientes por ID:
+/tasks/{id}:
+ description: Serviço para deletar cliente por ID.
+ delete:
+
+   responses:
+    200:
+      description: Operação realizada com sucesso.
+      body:
+        application/json:
+          schema: |
+            {
+              "definitions": {},
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "$id": "http://example.com/root.json",
+              "type": "object",
+              "properties": {
+                "Status": {
+                  "type": "string"
+                }
+              }
+              }
+          example: |
+            {
+              "Status":"Deletedo com sucesso!"
+            }
+
+    422:
+      description: Algum campo envíado está inválido.
+    401:
+      description: Não autorizado.
+    500:
+      description: Erro interno do servidor.
