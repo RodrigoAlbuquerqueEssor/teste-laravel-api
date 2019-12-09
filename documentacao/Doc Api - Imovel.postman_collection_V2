@@ -1,0 +1,538 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Doc Api - Imovel",
+		"_postman_id": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+		"description": "# Apresentação\r\n\r\nIsso descreve os recursos que compõem a API REST do seguro residencial. \r\nDesenvolvida utilizando PHP 7 e o framework Laravel. A base de dados escolhida foi MySql.\r\nPor padrão, todas as solicitações para a API: http://127.0.0.1:8000/api/ recebem o v1 da API REST, indicando qual a versão a ser utilizada.\r\nO cabeçalho a ser envido deverá ser: Accept: Application/json para que a requisições retornadas sejam em formato JSON.\r\n\r\n# Autenticação\r\n\r\nExiste apenas uma maneira de se autenticar através da API. As solicitações que requererem autenticação irão retornar 401 Unauthorized, e informar se o token é inválido ou apenas expirou.\r\nO tempo para um token expirar é de 1 hora (60 minutos).\r\nO Padrão de autenticação utilizado foi o JWT (Json Web Token), uma espécie de assinatura digital, que após o usuário está conectado, cada pedido que vier irá incluir o JWT, permitindo que o usuário continue acessando os serviços e recursos que foram liberados pelo token.\r\nEssa autenticação deverá ser enviada no cabeçalho no formato: Authorization: Bearer {TOKEN}\r\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuário",
+			"description": "Está pasta representa um objeto do tipo Usuário na Doc Api – Imovel.",
+			"item": [
+				{
+					"name": "Listar usuários",
+					"request": {
+						"url": "http://127.0.0.1:8000/api/v1/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+								"description": "Lembrar de adquirir um novo token"
+							}
+						],
+						"body": {},
+						"description": "Endpoint para listar todos os usuários cadastrado no banco de dados."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar usuário especifico",
+					"request": {
+						"url": "http://127.0.0.1:8000/api/v1/users/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+								"description": "Lembrar de adquirir token novo"
+							}
+						],
+						"body": {},
+						"description": "Endpoint para listar um usuário em especifico, buscado atraves do seu ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar usuário",
+					"request": {
+						"url": "http://127.0.0.1:8000/api/v1/users/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+								"description": "Adquiri novo token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nome",
+									"value": "Rafael",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "sobrenome",
+									"value": "Alves",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "cpf",
+									"value": "176.776.837-50",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "email",
+									"value": "rafael@gmail.com",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text",
+									"description": ""
+								}
+							]
+						},
+						"description": "Endpoint para cadastrar um novo usuário"
+					},
+					"response": []
+				},
+				{
+					"name": "Editar usuário",
+					"request": {
+						"url": "http://127.0.0.1:8000/api/v1/users/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+								"description": "Adquiri novo token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nome",
+									"value": "Rafael",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "sobrenome",
+									"value": "Alves",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "cpf",
+									"value": "176.776.837-50",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "email",
+									"value": "rafael@gmail.com",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text",
+									"description": ""
+								}
+							]
+						},
+						"description": "Endpoint para editar um usuário"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar usuário",
+					"request": {
+						"url": "http://127.0.0.1:8000/api/v1/users/5",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+								"description": "Adquiri novo token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Endpoint para deletar um usuário"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Imovel",
+			"description": "Está pasta representa um objeto do tipo Imovel que pertence a um usuário do sistema.",
+			"item": [
+				{
+					"name": "Listar imoveis",
+					"request": {
+						"url": "http://127.0.0.1:8000/api/v1/imovel",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+								"description": "Lembrar de adquirir um novo token"
+							}
+						],
+						"body": {},
+						"description": "Endpoint para listar todos os imoveis associados ao usuário autenticado."
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar Lista de Imovel",
+					"request": {
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/busca?coditions=logradouro:=:Rua Diamante",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"busca"
+							],
+							"query": [
+								{
+									"key": "coditions",
+									"value": "logradouro:=:Rua Diamante",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Endpoint para buscar imoveis atraves de filtros, como logradouro, bairro, estado e etc."
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar imovel pelo CPF",
+					"request": {
+						"url": "http://127.0.0.1:8000/api/v1/users/buscaImoveis",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+								"description": "Lembrar de adquirir um novo token"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cpf",
+									"value": "000.000.000-00",
+									"description": "Formato 000.000.000-00",
+									"type": "text"
+								}
+							]
+						},
+						"description": "Endpoint para filtrar os imoveis pelo CPF"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar imovel especifico",
+					"request": {
+						"url": "http://127.0.0.1:8000/api/v1/imovel/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+								"description": "Lembrar de adquirir token novo"
+							}
+						],
+						"body": {},
+						"description": "Endpoint para listar um imovel em especifico, buscado atraves do seu ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar imovel",
+					"request": {
+						"url": "http://127.0.0.1:8000/api/v1/imovel/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+								"description": "Adquiri novo token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "logradouro",
+									"value": "Rua da Ajuda",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "bairro",
+									"value": "Jardim Cataria",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "municipio",
+									"value": "São Gonçalo",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "estado",
+									"value": "Rio de Janeiro",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "cep",
+									"value": "24716-601",
+									"type": "text",
+									"description": "formato 00000-000"
+								},
+								{
+									"key": "tipo_imovel",
+									"value": "casa",
+									"description": "casa ou apartamento",
+									"type": "text"
+								}
+							]
+						},
+						"description": "Endpoint para cadastrar um novo imovel"
+					},
+					"response": []
+				},
+				{
+					"name": "Editar imovel",
+					"request": {
+						"url": "http://127.0.0.1:8000/api/v1/imovel/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+								"description": "Adquiri novo token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "logradouro",
+									"value": "Rua da Ajuda",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "bairro",
+									"value": "Jardim Cataria",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "municipio",
+									"value": "São Gonçalo",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "estado",
+									"value": "Rio de Janeiro",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "cep",
+									"value": "24716-601",
+									"type": "text",
+									"description": "formato 00000-000"
+								},
+								{
+									"key": "tipo_imovel",
+									"value": "casa",
+									"description": "casa ou apartamento",
+									"type": "text"
+								}
+							]
+						},
+						"description": "Endpoint para editar um imovel"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar imovel",
+					"request": {
+						"url": "http://127.0.0.1:8000/api/v1/imovel/1",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+								"description": "Adquiri novo token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Endpoint para deletar um imovel"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autenticação",
+			"description": "Está pasta representa um objeto do tipo Autenticação para poder autenticar e receber um token.",
+			"item": [
+				{
+					"name": "Obter Token",
+					"request": {
+						"url": "http://127.0.0.1:8000/api/v1/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "joao@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": "Endpoint para adiquirir um token"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

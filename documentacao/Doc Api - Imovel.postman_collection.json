@@ -1,0 +1,763 @@
+{
+	"id": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+	"name": "Doc Api - Imovel",
+	"description": "# Apresentação\r\n\r\nIsso descreve os recursos que compõem a API REST do seguro residencial. \r\nDesenvolvida utilizando PHP 7 e o framework Laravel. A base de dados escolhida foi MySql.\r\nPor padrão, todas as solicitações para a API: http://127.0.0.1:8000/api/ recebem o v1 da API REST, indicando qual a versão a ser utilizada.\r\nO cabeçalho a ser envido deverá ser: Accept: Application/json para que a requisições retornadas sejam em formato JSON.\r\n\r\n# Autenticação\r\n\r\nExiste apenas uma maneira de se autenticar através da API. As solicitações que requererem autenticação irão retornar 401 Unauthorized, e informar se o token é inválido ou apenas expirou.\r\nO tempo para um token expirar é de 1 hora (60 minutos).\r\nO Padrão de autenticação utilizado foi o JWT (Json Web Token), uma espécie de assinatura digital, que após o usuário está conectado, cada pedido que vier irá incluir o JWT, permitindo que o usuário continue acessando os serviços e recursos que foram liberados pelo token.\r\nEssa autenticação deverá ser enviada no cabeçalho no formato: Authorization: Bearer {TOKEN}\r\n",
+	"order": [],
+	"folders": [
+		{
+			"name": "Autenticação",
+			"description": "Está pasta representa um objeto do tipo Autenticação para poder autenticar e receber um token.",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"order": [
+				"7f7ff4cc-a5e6-f352-dffb-9f1790c7d65b"
+			],
+			"owner": "8806548",
+			"folders_order": [],
+			"id": "35ba9704-2695-3a48-f256-616cb2de489f"
+		},
+		{
+			"name": "Imovel",
+			"description": "Está pasta representa um objeto do tipo Imovel que pertence a um usuário do sistema.",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"order": [
+				"6d5b991b-4c6b-09da-c6a3-751e1ef8529f",
+				"e6145f15-d02b-db99-9538-2dff9bf600ee",
+				"f72d0854-8302-43c4-0882-1dd59f1f0dce",
+				"8c519cb8-0441-0bc1-f211-1539ac39ad50",
+				"b5b9453c-6e77-fa68-ac5d-03e58ac1bf2e",
+				"979a5f9c-ca0d-7134-5b2f-afa94140f334",
+				"664ea8fb-9514-d2b6-a113-6bb1c46cab5c"
+			],
+			"owner": "8806548",
+			"folders_order": [],
+			"id": "86efe7e4-35c9-9b5c-20d9-8b5af266b36c"
+		},
+		{
+			"name": "Usuário",
+			"description": "Está pasta representa um objeto do tipo Usuário na Doc Api – Imovel.",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"order": [
+				"ccac7dba-e441-cb4f-59ec-4a0ae30fbdb1",
+				"3274abee-b56d-b9c1-c803-fbfc5352376e",
+				"2de8b432-efe2-f89b-6f23-1ce97b6c6b3a",
+				"c518a85a-1211-6d73-60ec-b4f277fc74ba",
+				"9e8239fc-be3e-ffb3-239a-59d711c68b5f"
+			],
+			"owner": "8806548",
+			"folders_order": [],
+			"id": "6bf787ec-ffb4-1e78-a980-8582577c7240"
+		}
+	],
+	"folders_order": [
+		"6bf787ec-ffb4-1e78-a980-8582577c7240",
+		"86efe7e4-35c9-9b5c-20d9-8b5af266b36c",
+		"35ba9704-2695-3a48-f256-616cb2de489f"
+	],
+	"timestamp": 1575856917143,
+	"owner": "8806548",
+	"public": false,
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "2de8b432-efe2-f89b-6f23-1ce97b6c6b3a",
+			"headers": "Accept: application/json\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E\nContent-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+					"description": "Adquiri novo token",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/users/",
+			"folder": "6bf787ec-ffb4-1e78-a980-8582577c7240",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": [],
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "nome",
+					"value": "Rafael",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "sobrenome",
+					"value": "Alves",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "cpf",
+					"value": "176.776.837-50",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "email",
+					"value": "rafael@gmail.com",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "password",
+					"value": "12345678",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": [],
+			"time": 1575858083281,
+			"name": "Cadastrar usuário",
+			"description": "Endpoint para cadastrar um novo usuário",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"responses": [],
+			"collection_id": "66b966db-52cc-1fc9-774e-0a0787ceb2d7"
+		},
+		{
+			"id": "3274abee-b56d-b9c1-c803-fbfc5352376e",
+			"headers": "Accept: application/json\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+					"description": "Lembrar de adquirir token novo",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/users/1",
+			"folder": "6bf787ec-ffb4-1e78-a980-8582577c7240",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": [],
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": [],
+			"time": 1575858184378,
+			"name": "Listar usuário especifico",
+			"description": "Endpoint para listar um usuário em especifico, buscado atraves do seu ID",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"responses": [],
+			"collection_id": "66b966db-52cc-1fc9-774e-0a0787ceb2d7"
+		},
+		{
+			"id": "664ea8fb-9514-d2b6-a113-6bb1c46cab5c",
+			"headers": "Accept: application/json\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E\nContent-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+					"description": "Adquiri novo token",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/imovel/1",
+			"folder": "86efe7e4-35c9-9b5c-20d9-8b5af266b36c",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1575859692988,
+			"name": "Deletar imovel",
+			"description": "Endpoint para deletar um imovel",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"responses": []
+		},
+		{
+			"id": "6d5b991b-4c6b-09da-c6a3-751e1ef8529f",
+			"headers": "Accept: application/json\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+					"description": "Lembrar de adquirir um novo token",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/imovel",
+			"queryParams": [],
+			"pathVariables": [],
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"data": null,
+			"dataMode": "params",
+			"name": "Listar imoveis",
+			"description": "Endpoint para listar todos os imoveis associados ao usuário autenticado.",
+			"descriptionFormat": "html",
+			"time": 1575858411071,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": [],
+			"folder": "86efe7e4-35c9-9b5c-20d9-8b5af266b36c",
+			"collection_id": "66b966db-52cc-1fc9-774e-0a0787ceb2d7"
+		},
+		{
+			"id": "7f7ff4cc-a5e6-f352-dffb-9f1790c7d65b",
+			"headers": "Accept: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/login",
+			"folder": "35ba9704-2695-3a48-f256-616cb2de489f",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": [],
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "email",
+					"value": "joao@gmail.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "12345678",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": [],
+			"time": 1575857411393,
+			"name": "Obter Token",
+			"description": "Endpoint para adiquirir um token",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"responses": [],
+			"collection_id": "66b966db-52cc-1fc9-774e-0a0787ceb2d7"
+		},
+		{
+			"id": "8c519cb8-0441-0bc1-f211-1539ac39ad50",
+			"headers": "Accept: application/json\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+					"description": "Lembrar de adquirir token novo",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/imovel/1",
+			"queryParams": [],
+			"pathVariables": [],
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"data": null,
+			"dataMode": "params",
+			"name": "Listar imovel especifico",
+			"description": "Endpoint para listar um imovel em especifico, buscado atraves do seu ID",
+			"descriptionFormat": "html",
+			"time": 1575858714866,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": [],
+			"folder": "86efe7e4-35c9-9b5c-20d9-8b5af266b36c",
+			"collection_id": "66b966db-52cc-1fc9-774e-0a0787ceb2d7"
+		},
+		{
+			"id": "979a5f9c-ca0d-7134-5b2f-afa94140f334",
+			"headers": "Accept: application/json\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E\nContent-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+					"description": "Adquiri novo token",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/imovel/1",
+			"folder": "86efe7e4-35c9-9b5c-20d9-8b5af266b36c",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [
+				{
+					"key": "logradouro",
+					"value": "Rua da Ajuda",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "bairro",
+					"value": "Jardim Cataria",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "municipio",
+					"value": "São Gonçalo",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "estado",
+					"value": "Rio de Janeiro",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "cep",
+					"value": "24716-601",
+					"type": "text",
+					"enabled": true,
+					"description": "formato 00000-000"
+				},
+				{
+					"key": "tipo_imovel",
+					"value": "casa",
+					"description": "casa ou apartamento",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1575859773715,
+			"name": "Editar imovel",
+			"description": "Endpoint para editar um imovel",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"responses": []
+		},
+		{
+			"id": "9e8239fc-be3e-ffb3-239a-59d711c68b5f",
+			"headers": "Accept: application/json\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E\nContent-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+					"description": "Adquiri novo token",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/users/5",
+			"queryParams": [],
+			"pathVariables": [],
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"data": [],
+			"dataMode": "urlencoded",
+			"name": "Deletar usuário",
+			"description": "Endpoint para deletar um usuário",
+			"descriptionFormat": "html",
+			"time": 1575858318634,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": [],
+			"folder": "6bf787ec-ffb4-1e78-a980-8582577c7240",
+			"collection_id": "66b966db-52cc-1fc9-774e-0a0787ceb2d7"
+		},
+		{
+			"id": "b5b9453c-6e77-fa68-ac5d-03e58ac1bf2e",
+			"headers": "Accept: application/json\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E\nContent-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+					"description": "Adquiri novo token",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/imovel/",
+			"folder": "86efe7e4-35c9-9b5c-20d9-8b5af266b36c",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "logradouro",
+					"value": "Rua da Ajuda",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "bairro",
+					"value": "Jardim Cataria",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "municipio",
+					"value": "São Gonçalo",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "estado",
+					"value": "Rio de Janeiro",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "cep",
+					"value": "24716-601",
+					"type": "text",
+					"enabled": true,
+					"description": "formato 00000-000"
+				},
+				{
+					"key": "tipo_imovel",
+					"value": "casa",
+					"description": "casa ou apartamento",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1575859796267,
+			"name": "Cadastrar imovel",
+			"description": "Endpoint para cadastrar um novo imovel",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"responses": []
+		},
+		{
+			"id": "c518a85a-1211-6d73-60ec-b4f277fc74ba",
+			"headers": "Accept: application/json\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E\nContent-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+					"description": "Adquiri novo token",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/users/1",
+			"queryParams": [],
+			"pathVariables": [],
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"data": [
+				{
+					"key": "nome",
+					"value": "Rafael",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "sobrenome",
+					"value": "Alves",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "cpf",
+					"value": "176.776.837-50",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "email",
+					"value": "rafael@gmail.com",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "password",
+					"value": "12345678",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Editar usuário",
+			"description": "Endpoint para editar um usuário",
+			"descriptionFormat": "html",
+			"time": 1575858231743,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": [],
+			"folder": "6bf787ec-ffb4-1e78-a980-8582577c7240",
+			"collection_id": "66b966db-52cc-1fc9-774e-0a0787ceb2d7"
+		},
+		{
+			"id": "ccac7dba-e441-cb4f-59ec-4a0ae30fbdb1",
+			"headers": "Accept: application/json\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+					"description": "Lembrar de adquirir um novo token",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/users",
+			"queryParams": [],
+			"pathVariables": [],
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"data": null,
+			"dataMode": "params",
+			"name": "Listar usuários",
+			"description": "Endpoint para listar todos os usuários cadastrado no banco de dados.",
+			"descriptionFormat": "html",
+			"time": 1575857549689,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": [],
+			"folder": "6bf787ec-ffb4-1e78-a980-8582577c7240",
+			"collection_id": "66b966db-52cc-1fc9-774e-0a0787ceb2d7"
+		},
+		{
+			"id": "e6145f15-d02b-db99-9538-2dff9bf600ee",
+			"headers": "Accept: application/json\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/busca?coditions=logradouro:=:Rua Diamante",
+			"folder": "86efe7e4-35c9-9b5c-20d9-8b5af266b36c",
+			"queryParams": [
+				{
+					"key": "coditions",
+					"value": "logradouro:=:Rua Diamante",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": [],
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": [],
+			"time": 1575858670495,
+			"name": "Filtrar Lista de Imovel",
+			"description": "Endpoint para buscar imoveis atraves de filtros, como logradouro, bairro, estado e etc.",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"responses": [],
+			"collection_id": "66b966db-52cc-1fc9-774e-0a0787ceb2d7"
+		},
+		{
+			"id": "f72d0854-8302-43c4-0882-1dd59f1f0dce",
+			"headers": "Accept: application/json\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1NzU4NTc0NzksImV4cCI6MTU3NTg2MTA3OSwibmJmIjoxNTc1ODU3NDc5LCJqdGkiOiJmV1dHdTRqdlcxT0ZYbUdlIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BilX4yVm_1r9rJBP9Z-vY9DUebmnvlQcIJP3IQqdu3E",
+					"description": "Lembrar de adquirir um novo token",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/v1/users/buscaImoveis",
+			"queryParams": [],
+			"pathVariables": [],
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "66b966db-52cc-1fc9-774e-0a0787ceb2d7",
+			"data": [
+				{
+					"key": "cpf",
+					"value": "000.000.000-00",
+					"description": "Formato 000.000.000-00",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "Filtrar imovel pelo CPF",
+			"description": "Endpoint para filtrar os imoveis pelo CPF",
+			"descriptionFormat": "html",
+			"time": 1575858653346,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": [],
+			"folder": "86efe7e4-35c9-9b5c-20d9-8b5af266b36c",
+			"collection_id": "66b966db-52cc-1fc9-774e-0a0787ceb2d7"
+		}
+	]
+}
